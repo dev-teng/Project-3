@@ -9,10 +9,20 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
    const filteredName = result.results.filter(pokemon => pokemon.name.toLowerCase().includes(inputValue));
 
    filteredName.forEach((pokemon)=> {
-    let displayName = document.createElement('li');
-    displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
-    resultArea.appendChild(displayName);
+
+    fetch(pokemon.url)
+      .then(response => response.json())
+      .then(pokemonDetails => {
+        let displayName = document.createElement('li');
+      })
+    // let displayName = document.createElement('li');
+    // displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
+    // resultArea.appendChild(displayName);
    })
+
+
+
+
 
    if (filteredName.length === 0) {
     let displayName = document.createElement('li');
