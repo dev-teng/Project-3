@@ -9,23 +9,13 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
   .then(response => response.json())
   .then(result => {
    const filteredName = result.results.filter(pokemon => pokemon.name.toLowerCase().includes(inputValue));
-
-   filteredName.forEach((pokemon)=> {
-
-
-    let displayName = document.createElement('li');
-    displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
-    resultArea.appendChild(displayName);
-   })
-
-   
-   if (filteredName.length === 0) {
-    let displayName = document.createElement('li');
-    displayName.textContent = 'No pokemon found!';
-    resultArea.appendChild(displayName);
+   if(filteredName.length === 0) {
+    let noPokemonMessage = document.createElement('li');
+    noPokemonMessage.textContent = 'No Pokemon found!';
+    resultArea.appendChild(noPokemonMessage)
    }
-  }
-  )
+   
+  })
   .catch(error => console.log(error, 'error'));
 
 });
