@@ -1,8 +1,10 @@
 document.querySelector('#searchBtn').addEventListener('click', () => {
-  const inputValue = document.querySelector('#inputText').value.toLowerCase();
+  const inputText = document.querySelector('#inputText')
+  const inputValue = inputText.value.toLowerCase();
   let resultArea = document.querySelector('#results');
   resultArea.innerHTML ="";
-
+  inputText.value = "";
+  
   fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
   .then(response => response.json())
   .then(result => {
