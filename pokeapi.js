@@ -19,7 +19,14 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
     fetch(pokemon.url)
     .then(response => response.json())
       .then(pokemonDetails =>{
-        let type = '';
+        let types = '';
+
+        pokemonDetails.types.forEach((type,index)=> {
+          types +=type.type.name;
+          if(index < pokemonDetails.types.length -1) {
+            type += ',';
+          }
+        })
 
 
 
