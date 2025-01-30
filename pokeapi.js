@@ -14,6 +14,19 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
     noPokemonMessage.textContent = 'No Pokemon found!';
     resultArea.appendChild(noPokemonMessage)
    }
+
+   filteredName.forEach(pokemon => {
+    fetch(pokemon.url)
+    .then(response => response.json())
+      .then(pokemonDetails =>{
+        let type = '';
+
+
+
+
+      })
+      .catch(error => console.log('error', error));
+   });
    
   })
   .catch(error => console.log(error, 'error'));
