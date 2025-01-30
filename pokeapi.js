@@ -10,7 +10,7 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
 
    filteredName.forEach((pokemon)=> {
     let displayName = document.createElement('li');
-    displayName.textContent = pokemon.name;
+    displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
     resultArea.appendChild(displayName);
    })
 
