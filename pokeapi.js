@@ -26,10 +26,17 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
           if(index < pokemonDetails.types.length -1) {
             type += ',';
           }
-        })
+        });
 
+            const imageUrl = pokemonDetails.sprites.front_default || 'https://via.placeholder.com/100?text=No+Image';
 
-
+            let pokemonItem = document.createElement('li');
+            pokemonItem.innerHTML = `
+              <strong>${pokemon.name}</strong><br>
+              Types: ${types}<br>
+              <img src="${imageUrl}" alt="${pokemon.name}" width="100">
+            `;
+             resultArea.appendChild(pokemonItem);
 
       })
       .catch(error => console.log('error', error));
