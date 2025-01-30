@@ -5,7 +5,10 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
 
   fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
   .then(response => response.json())
-  .then(result=> console.log(result))
+  .then(result => {
+    result.results.filter(pokemon => pokemon.name.toLowerCase().includes(inputValue));
+  }
+  )
   .catch(error => console.log(error, 'error'));
 
 });
