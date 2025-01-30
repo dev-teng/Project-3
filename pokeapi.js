@@ -10,20 +10,13 @@ document.querySelector('#searchBtn').addEventListener('click', () => {
 
    filteredName.forEach((pokemon)=> {
 
-    fetch(pokemon.url)
-      .then(response => response.json())
-      .then(pokemonDetails => {
-        let displayName = document.createElement('li');
-      })
-    // let displayName = document.createElement('li');
-    // displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
-    // resultArea.appendChild(displayName);
+
+    let displayName = document.createElement('li');
+    displayName.textContent = `${pokemon.name} - ${pokemon.url}`;
+    resultArea.appendChild(displayName);
    })
 
-
-
-
-
+   
    if (filteredName.length === 0) {
     let displayName = document.createElement('li');
     displayName.textContent = 'No pokemon found!';
